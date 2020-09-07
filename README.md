@@ -1,4 +1,4 @@
-# Linking Activity (OS, F'20, 9/7)
+# Signals Activity (OS, F'20, 9/7)
 
 Instructions:
 * download Signals.pdf locally or open it in-browser
