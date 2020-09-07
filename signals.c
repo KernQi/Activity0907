@@ -59,17 +59,17 @@ void setupSignalHandler(int signal, void (*handler)(int)) {
 	//zero the memory in the sigaction struct -
 	//set the sa_handler field -
 	//call sigaction & detect errors
-	struct sigaction* sigaction = malloc(sizeof(struct sigaction));
+	struct sigaction* ourSigaction = malloc(sizeof(struct sigaction));
 
-	memset(sigaction, 0, sizeof(sigaction));
+	memset(ourSigaction, 0, sizeof(sigaction));
 
-	sigaction->sa_handler = handler;
+	ourSigaction->sa_handler = handler;
 
-	if(sigaction(signal, sigaction, NULL) == -1){
+	if(sigaction(signal, ourSigaction, NULL) == -1){
 		perror("error message.");
 	}
 
-	free(sigaction);
+	free(ourSigaction);
 }
 
 //reaps a a child process
