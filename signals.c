@@ -21,9 +21,9 @@ int main(int argc, char **argv) {
 	//TODO
 	//call the setupSignalHandler function with the appropriate
 	//handler for each signal: SIGCHLD, SIGUSR1, and SIGTERM
-	void childHandler(int signal);
-	void termHandler(int signal);
-	void usr1Handler(int signal);
+	childHandler(int signal);
+	termHandler(int signal);
+	usr1Handler(int signal);
 
 	printf("My pid is: %d\n", getpid());
 
