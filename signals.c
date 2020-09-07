@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 	//TODO
 	//call the setupSignalHandler function with the appropriate
 	//handler for each signal: SIGCHLD, SIGUSR1, and SIGTERM
-	
+
 
 	printf("My pid is: %d\n", getpid());
 
@@ -55,16 +55,24 @@ int main(int argc, char **argv) {
 //to register the handler function for the given signal
 void setupSignalHandler(int signal, void (*handler)(int)) {
 	//TODO
-	//create a sigaction struct
-	//zero the memory in the sigaction struct
-	//set the sa_handler field
+	//create a sigaction struct -
+	//zero the memory in the sigaction struct -
+	//set the sa_handler field -
 	//call sigaction & detect errors
+	struct sigaction* sigaction;
 
+	memset(sigaction, 0, sizeof(sigaction));
+
+	sigaction.sa_handler = handler;
+
+	if(sigaction() == -1){
+		perror("error message");
+	}	
 }
 
 //reaps a a child process
 void childHandler(int signal) {
-	int status; 
+	int status;
 
 	//Q3: Why do we need to wait AFTER receiving a child signal?
 	//Q4: Why do we need to call waitpid in a loop?
