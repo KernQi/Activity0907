@@ -21,7 +21,9 @@ int main(int argc, char **argv) {
 	//TODO
 	//call the setupSignalHandler function with the appropriate
 	//handler for each signal: SIGCHLD, SIGUSR1, and SIGTERM
-
+	void childHandler(int signal);
+	void termHandler(int signal);
+	void usr1Handler(int signal);
 
 	printf("My pid is: %d\n", getpid());
 
@@ -29,6 +31,7 @@ int main(int argc, char **argv) {
 		if(printFlag){
 			printf("Number of finished children: %d\n", collectedChildren);
 		}
+
 
 		childID = fork();
 
