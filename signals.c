@@ -63,11 +63,11 @@ void setupSignalHandler(int signal, void (*handler)(int)) {
 
 	memset(sigaction, 0, sizeof(sigaction));
 
-	sigaction.sa_handler = handler;
+	sigaction->sa_handler = handler;
 
 	if(sigaction() == -1){
 		perror("error message");
-	}	
+	}
 }
 
 //reaps a a child process
